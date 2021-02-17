@@ -10,7 +10,7 @@ const router = express.Router();
 export const getThemes = async (req, res) => {
     try {
         const themes = await Theme.find();
-        res.status(200).json(themes);
+        res.status(200).json({ data: themes });
 
     } catch (error) {
         res.status(404).json({ message: error.message });
