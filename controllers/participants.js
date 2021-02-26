@@ -29,8 +29,8 @@ export const getParticipant = async (req, res) => {
 }
 
 export const createParticipant = async (req, res) => {
-    const { name, lastName, email, establishment } = req.body;
-    const newParticipant = new Participant({ name: name, lastName: lastName, email: email, establishment: establishment });
+    const { name, lastName, email, establishment, theme } = req.body;
+    const newParticipant = new Participant({ name: name, lastName: lastName, email: email, establishment: establishment, theme: theme });
 
     try {
         await newParticipant.save();
@@ -44,12 +44,12 @@ export const createParticipant = async (req, res) => {
 
 export const updateParticipant = async (req, res) => {
     const { id } = req.params;
-    const { name, lastName, email, establishment } = req.body;
+    const { name, lastName, email, establishment, theme } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No participant with id: ${id}`);
 
 
-    const updatedParticipant = { name, lastName, email, establishment, _id: id };
+    const updatedParticipant = { name, lastName, email, establishment, theme, _id: id };
 
     await Participant.findByIdAndUpdate(id, updatedParticipant, { new: true });
 

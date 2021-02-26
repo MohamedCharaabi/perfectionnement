@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { formerSchema } from './former.js';
 
-const themeSchema = new mongoose.Schema({
+export const themeSchema = new mongoose.Schema({
     name: String,
     days: Number,
     formers: [
