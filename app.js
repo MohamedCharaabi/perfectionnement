@@ -7,6 +7,8 @@ import cors from 'cors';
 import formerRoutes from './routes/formers.js';
 import themeRoutes from './routes/themes.js';
 import participantRoutes from './routes/participants.js'
+import sessionRoutes from './routes/sessions.js'
+
 
 dotenv.config();
 
@@ -18,6 +20,8 @@ app.use(cors());
 app.use('/former', formerRoutes);
 app.use('/theme', themeRoutes);
 app.use('/participant', participantRoutes);
+app.use('/session', sessionRoutes);
+
 
 
 const PORT = process.env.PORT || 5000;
