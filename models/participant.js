@@ -6,7 +6,7 @@ const participantSchema = new mongoose.Schema({
     lastName: String,
     email: String,
     establishment: String,
-    theme: themeSchema,
+    theme: String,
 });
 
 
