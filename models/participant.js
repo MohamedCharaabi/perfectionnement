@@ -5,6 +5,8 @@ const participantSchema = new mongoose.Schema({
     name: String,
     lastName: String,
     email: String,
+    proffesion: String,
+    phone: Number,
     establishment: String,
     theme: String,
 });
