@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
         secure: true
     })
     res.cookie('hi', 'cool', {
-        httpOnly: true,
+        httpOnly: false,
         maxAge: 24 * 60 * 60 * 1000,
     })
 
