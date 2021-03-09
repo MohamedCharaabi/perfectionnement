@@ -69,7 +69,7 @@ router.get('/user', async (req, res) => {
 
         res.send(data)
     } catch (error) {
-        return res.status(401).send({ message: 'error' })
+        return res.status(401).send({ message: 'error => ' + error.message })
 
     }
 })
