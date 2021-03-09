@@ -47,7 +47,9 @@ router.post('/login', async (req, res) => {
         //store the token on cookies
         res.cookie('jwt', token, {
             httpOnly: true,
-            maxAge: 24 * 60 * 60 * 1000 //1 day
+            maxAge: 24 * 60 * 60 * 1000, //1 day
+            sameSite: 'none',
+            secure: true
         })
 
         res.send({ message: 'succcess' });
