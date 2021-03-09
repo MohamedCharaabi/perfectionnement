@@ -94,6 +94,11 @@ router.get('/user', async (req, res) => {
 
 
 router.post('/logout', async (req, res) => {
+
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+
     try {
         res.cookie('jwt', { maxAge: 0, }); //remove the cookie by setting the age to 0
         res.send({ message: ' log out success' })
