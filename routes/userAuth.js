@@ -39,17 +39,25 @@ router.post('/login', async (req, res) => {
         })
     }
 
+    try {
 
-    // jwt token
-    const token = jwt.sign({ _id: user._id }, 'secret2')
+        // jwt token
+        const token = jwt.sign({ _id: user._id }, 'secret2')
 
-    //store the token on cookies
-    res.cookie('jwt', token, {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000 //1 day
-    })
+        //store the token on cookies
+        res.cookie('jwt', token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000 //1 day
+        })
 
-    res.send({ message: 'succcess' });
+        res.send({ message: 'succcess' });
+    } catch (error) {
+        res.status(400).send({
+            message: 'jwt => ' + error.message
+        })
+
+    }
+
 
 })
 
