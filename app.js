@@ -8,6 +8,8 @@ import formerRoutes from './routes/formers.js';
 import themeRoutes from './routes/themes.js';
 import participantRoutes from './routes/participants.js'
 import sessionRoutes from './routes/sessions.js'
+import authRoutes from './routes/userAuth.js';
+import cookieParser from 'cookie-parser'
 
 
 dotenv.config();
@@ -15,12 +17,17 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
-app.use(cors());
+app.use(cookieParser())
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000', 'http://localhost:8000', 'http://localhost:4200']  //3 react , 8 view, 42 angular
+}));
 
 app.use('/former', formerRoutes);
 app.use('/theme', themeRoutes);
 app.use('/participant', participantRoutes);
 app.use('/session', sessionRoutes);
+app.use('/auth', authRoutes);
 
 
 

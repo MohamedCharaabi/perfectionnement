@@ -5,6 +5,8 @@ export const formerSchema = new mongoose.Schema({
     name: String,
     lastName: String,
     email: String,
+    image: String,
+
 
 });
 

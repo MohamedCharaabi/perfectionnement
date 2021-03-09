@@ -28,8 +28,8 @@ export const getFormer = async (req, res) => {
 
 
 export const createFormer = async (req, res) => {
-    const { name, lastName, email } = req.body;
-    const newFormer = new Former({ name: name, lastName: lastName, email: email });
+    const { name, lastName, email, image } = req.body;
+    const newFormer = new Former({ name: name, lastName: lastName, email: email, image: image });
 
     try {
         await newFormer.save();
@@ -41,12 +41,12 @@ export const createFormer = async (req, res) => {
 
 export const updateFormer = async (req, res) => {
     const { id } = req.params;
-    const { name, lastName, email } = req.body;
+    const { name, lastName, email, image } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No former with id: ${id}`);
 
 
-    const updatedFormer = { name, lastName, email, _id: id };
+    const updatedFormer = { name, lastName, email, image, _id: id };
 
     await Former.findByIdAndUpdate(id, updatedFormer, { new: true });
 
