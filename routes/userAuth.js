@@ -44,13 +44,18 @@ router.post('/login', async (req, res) => {
     // jwt token
     const token = jwt.sign({ _id: user._id }, 'secret')
 
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+
+
     //store the token on cookies
     res.cookie('jwt', token, {
-        httpOnly: true,
+        httpOnly: false,
         maxAge: 24 * 60 * 60 * 1000, //1 day
         // sameSite: 'lax',
         // secure: true
-        sameSite: true,
+        sameSite: 'none',
         secure: true
     })
     res.cookie('hi', 'cool', {
