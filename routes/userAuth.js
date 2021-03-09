@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 
     //store the token on cookies
     res.cookie('jwt', token, {
-        domain: '/',
+        // domain: '/',
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, //1 day
         // sameSite: 'lax',
