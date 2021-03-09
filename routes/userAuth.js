@@ -89,7 +89,7 @@ router.get('/user', async (req, res) => {
     } catch (error) {
         return res.status(401).send({ message: 'error => ' + error.message })
 
-    }
+    } s
 })
 
 
