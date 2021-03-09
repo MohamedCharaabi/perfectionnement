@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
         // sameSite: 'lax',
         // secure: true
         sameSite: 'none',
-        secure: true
+        secure: false
     })
 
     res.send({ message: 'succcess' });
